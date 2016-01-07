@@ -25,6 +25,6 @@ public class SoundRecord {
     }
 
     public static void main(String args[]) throws IOException {
-        new SoundRecord(32123, 4).startRecording();
+        new SoundRecord(32121, 4).startRecording();
     }
 }
