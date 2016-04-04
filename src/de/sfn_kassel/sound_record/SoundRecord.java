@@ -32,9 +32,9 @@ public class SoundRecord {
         options.addOption("s", "samplerate", true, "the Samplerate");
         options.addOption("d", "device", true, "the device to use");
         options.addOption("n", "numMics", true, "the number of channels to record");
-        int port = Integer.parseInt(args[0]);
+        options.addOption("o", "outputPort", true, "the Output Port");
 
-        int numMics = 0, samplerate = 0;
+        int numMics = 0, samplerate = 0, port = 0;
         String device = "";
 
         try {
@@ -46,12 +46,13 @@ public class SoundRecord {
                 numMics = Integer.parseInt(cmd.getOptionValue('n'));
                 samplerate = Integer.parseInt(cmd.getOptionValue('s'));
                 device = cmd.getOptionValue('d');
+                port = Integer.parseInt(cmd.getOptionValue('o'));
             } else {
                 System.err.println("please specify device, number of microphones and samplerate");
                 printHelp();
                 System.exit(-1);
             }
-        } catch (Exception e) { //lazyness
+        } catch (Exception e) { //laziness
             System.err.println("failed to parse Arguments!");
             e.printStackTrace();
             printHelp();
